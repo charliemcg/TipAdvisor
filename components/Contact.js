@@ -2,60 +2,75 @@ import React, { Component } from "react";
 import {
   Text,
   View,
-  Image,
   TouchableHighlight,
   Linking,
-  Alert,
   Dimensions,
   Platform
 } from "react-native";
 import styles from "../styles/contactStyles";
-// import stylesLarge from "../styles/contactStylesLarge";
-// import stylesMedium from "../styles/contactStylesMedium";
 import email from "react-native-email";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 import Title from "./Title";
 
+//Contact email
 const EMAIL = "violenthoboenterprises@gmail.com";
+
+//link to store listing
 const REVIEW =
   Platform.OS === "ios"
     ? ""
     : "https://play.google.com/store/apps/details?id=com.tipadvisor"; //Need to get the link for both ios and android
+
+//link to developer page
 const MORE_APPS =
   Platform.OS === "ios"
     ? "https://itunes.apple.com/ph/developer/charlie-mcgregor/id1463597870?mt=8"
     : "https://play.google.com/store/apps/developer?id=ViolentHoboEnterprises";
 
 class Contact extends Component {
+  //go to app listing
   handleReview = () => {
-    // inform user of error
     Linking.openURL(REVIEW).catch(err =>
       console.error("An error occurred", err)
     );
   };
+
+  //go to developer page
   handleMoreApps = () => {
-    // inform user of error
     Linking.openURL(MORE_APPS).catch(err =>
       console.error("An error occurred", err)
     );
   };
+
+  //open email app and populate 'to' field with developer's email address
   handleEmail = () => {
-    // inform user of error
     email(EMAIL, {}).catch(err => console.error("An error occured", err));
   };
-  getSize = () => {
-    return Dimensions.get("window").width < 550
-      ? styles
-      : Dimensions.get("window").width < 650
-      ? stylesMedium
-      : stylesLarge;
-  };
+
+  //setting icon size based on screen size
   getIconSize = () => {
     return Dimensions.get("window").width > 650 ? 80 : 50;
   };
+
+  //content for each button on the screen
+  getTouchContent = content => {
+    return (
+      <View style={styles.touchWrapper}>
+        <View style={styles.textWrapper}>
+          <Text style={styles.text}>{content.text}</Text>
+        </View>
+        <View style={styles.imgWrapper}>
+          <Icon
+            name={content.iconName}
+            color={"#888"}
+            size={this.getIconSize()}
+          />
+        </View>
+      </View>
+    );
+  };
+
   render() {
-    // const sizeAdjustedStyles = styles;
-    const iconSize = this.getIconSize();
     return (
       <View style={styles.container}>
         <Title />
@@ -104,23 +119,14 @@ class Contact extends Component {
 
           <View style={styles.touchableWrapper}>
             <TouchableHighlight
-              // onPress={() => this.handleReview()}
               onPress={() => this.props.navigation.navigate("PrivacyPolicy")}
               underlayColor="#eee"
               style={{ borderRadius: 20 }}
             >
-              <View style={styles.touchWrapper}>
-                <View style={styles.textWrapper}>
-                  <Text style={styles.text}>Privacy Policy</Text>
-                </View>
-                <View style={styles.imgWrapper}>
-                  <Icon
-                    name="file-document-box"
-                    color={"#888"}
-                    size={iconSize}
-                  />
-                </View>
-              </View>
+              {this.getTouchContent({
+                text: "Privacy Policy",
+                iconName: "file-document-box"
+              })}
             </TouchableHighlight>
           </View>
 
@@ -130,14 +136,10 @@ class Contact extends Component {
               underlayColor="#eee"
               style={{ borderRadius: 20 }}
             >
-              <View style={styles.touchWrapper}>
-                <View style={styles.textWrapper}>
-                  <Text style={styles.text}>Contact</Text>
-                </View>
-                <View style={styles.imgWrapper}>
-                  <Icon name="email-outline" color={"#888"} size={iconSize} />
-                </View>
-              </View>
+              {this.getTouchContent({
+                text: "Contact",
+                iconName: "email-outline"
+              })}
             </TouchableHighlight>
           </View>
 
@@ -147,18 +149,10 @@ class Contact extends Component {
               underlayColor="#eee"
               style={{ borderRadius: 20 }}
             >
-              <View style={styles.touchWrapper}>
-                <View style={styles.textWrapper}>
-                  <Text style={styles.text}>More apps</Text>
-                </View>
-                <View style={styles.imgWrapper}>
-                  <Icon
-                    name="cellphone-arrow-down"
-                    color={"#888"}
-                    size={iconSize}
-                  />
-                </View>
-              </View>
+              {this.getTouchContent({
+                text: "More apps",
+                iconName: "cellphone-arrow-down"
+              })}
             </TouchableHighlight>
           </View>
         </View>

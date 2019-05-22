@@ -1,21 +1,14 @@
 import React, { Component } from "react";
-import { View, Image, Dimensions } from "react-native";
+import { View, Image } from "react-native";
 import mapImg from "../images/mapBlurred.png";
-import stylesLarge from "../styles/titleStylesLarge";
 import styles from "../styles/titleStyles";
-import stylesMedium from "../styles/titleStylesMedium";
 
+/**
+ * Just an image that appears at the top of the background of every screen
+ */
 export default class Title extends Component {
-  getSize = () => {
-    return Dimensions.get("window").width < 550
-      ? styles
-      : Dimensions.get("window").width < 650
-      ? stylesMedium
-      : stylesLarge;
-  };
   render() {
-    // const sizeAdjustedStyles = this.getSize();
-    const sizeAdjustedStyles = styles
+    const sizeAdjustedStyles = styles;
     return (
       <View style={sizeAdjustedStyles.titleWrapper}>
         <Image

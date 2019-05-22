@@ -1,35 +1,19 @@
 import React, { Component } from "react";
-import {
-  Text,
-  View,
-  Image,
-  TextInput,
-  Alert,
-  ScrollView,
-  Dimensions
-} from "react-native";
+import { Text, View, ScrollView, Dimensions } from "react-native";
 import styles from "../styles/aboutStyles";
-import stylesMedium from "../styles/aboutStylesMedium";
-import stylesLarge from "../styles/aboutStylesLarge";
 import Title from "./Title";
 
+/**
+ * This is a pretty static screen which merely displays text
+ */
 class About extends Component {
-  getSize = () => {
-    return Dimensions.get("window").width < 550
-      ? styles
-      : Dimensions.get("window").width < 650
-      ? stylesMedium
-      : stylesLarge;
-  };
   render() {
-    // const sizeAdjustedStyles = this.getSize();
-    const sizeAdjustedStyles = styles;
     return (
-      <View style={sizeAdjustedStyles.container}>
+      <View style={styles.container}>
         <Title />
-        <View style={sizeAdjustedStyles.descriptionWrapper}>
+        <View style={styles.descriptionWrapper}>
           <ScrollView>
-            <Text style={sizeAdjustedStyles.text}>
+            <Text style={styles.text}>
               Here are a few quick points about this app:{`\n\n`}
               {`\u2022`} Just because tipping is accepted does not mean that it
               is expected. Some tips in this app are labelled "Tipping

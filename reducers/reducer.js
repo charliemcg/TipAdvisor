@@ -1,6 +1,7 @@
 import { countries } from "../countryList";
 import AsyncStorage from "@react-native-community/async-storage";
 
+//get all details related to the selected country
 function findCountry(payload) {
   for (let i = 0; i < countries.length; i++) {
     if (payload === countries[i].name) {
@@ -9,7 +10,8 @@ function findCountry(payload) {
   }
 }
 
-function getCountryFromDevice() {
+//default state
+function getPlaceholderCountry() {
   return {
     country: {
       name: null,
@@ -24,8 +26,9 @@ function getCountryFromDevice() {
   };
 }
 
-const reducer = (state = getCountryFromDevice(), action) => {
+const reducer = (state = getPlaceholderCountry(), action) => {
   switch (action.type) {
+    //updating the selected country
     case "CHANGE_COUNTRY":
       let newCountry = findCountry(action.payload);
       // Persisting new country in AsyncStorage
@@ -35,6 +38,7 @@ const reducer = (state = getCountryFromDevice(), action) => {
         country: newCountry
       };
       break;
+    //calculating the tip
     case "CALCULATE_TIP":
       let newAmount =
         action.payload *
@@ -46,6 +50,7 @@ const reducer = (state = getCountryFromDevice(), action) => {
         amount: newAmount
       };
       break;
+    //setting the selected tip type
     case "SET_INDEX":
       state = {
         ...state,
@@ -59,6 +64,7 @@ const reducer = (state = getCountryFromDevice(), action) => {
         }
       };
       break;
+    //setting the error type
     case "SET_ERROR":
       state = {
         ...state,

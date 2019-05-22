@@ -3,14 +3,10 @@ import {
   View,
   Image,
   TextInput,
-  Alert,
   ActivityIndicator,
-  Dimensions,
-  Text
+  Platform
 } from "react-native";
 import styles from "../styles/homeStyles";
-// import stylesMedium from "../styles/homeStylesMedium";
-// import stylesLarge from "../styles/homeStylesLarge";
 import { connect } from "react-redux";
 import Picker from "./Picker";
 import { changeCountry, calculateTip, setError } from "../actions";
@@ -22,9 +18,11 @@ import Title from "./Title";
 
 class Home extends Component {
   state = {
+    //the user entered amount from which the tip is to be calculated
     inputValue: null
   };
 
+  //perform validation after every key press
   handleChange = event => {
     this.setState({ inputValue: event });
     if (this.props.country.tips[this.props.country.selectedTipIndex] !== null) {
@@ -51,8 +49,10 @@ class Home extends Component {
     try {
       const value = await AsyncStorage.getItem("COUNTRY");
       if (value !== null) {
+        //found a persisted country
         this.props.changeCountry(value);
       } else {
+        //no persisted country available
         const countryCode = DeviceInfo.getDeviceCountry();
         for (let i = 0; i < countries.length; i++) {
           if (countryCode === countries[i].flag) {
@@ -60,6 +60,7 @@ class Home extends Component {
           }
         }
         if (this.props.country.name === null) {
+          //could not get device country. defaulting to first country in list (Afghanistan)
           this.props.changeCountry(countries[0].name);
         }
       }
@@ -108,16 +109,8 @@ class Home extends Component {
     return true;
   }
 
-  // getSize = () => {
-  //   return Dimensions.get("window").width < 550
-  //     ? styles
-  //     : Dimensions.get("window").width < 650
-  //     ? stylesMedium
-  //     : stylesLarge;
-  // };
-
   render() {
-    // const sizeAdjustedStyles = styles;
+    //Only need text input if country accepts tips
     const getTextInput =
       this.props.country.tips[this.props.country.selectedTipIndex] ===
       null ? null : (
@@ -139,6 +132,7 @@ class Home extends Component {
             }
           }}
           onFocus={() => {
+            //remove currency symbol while user is typing
             let prefixRemovedValue = this.state.inputValue;
             let sliceAmount = 0;
             if (prefixRemovedValue !== null && isNaN(prefixRemovedValue)) {
@@ -175,18 +169,22 @@ class Home extends Component {
         />
       );
 
+    //Adding whitespace for a better look
     const getBuffer =
       this.props.country.tips[this.props.country.selectedTipIndex] ===
       null ? null : this.props.country.name === null ? null : (
         <View style={styles.buffer} />
       );
 
-    //use flat instead of shiny for ios
-    const flagImgUrl =
-      "https://www.countryflags.io/" +
-      this.props.country.flag +
-      "/shiny/64.png";
+    //to best comply with UI guidelines flags on Android will be shiny and iOS will be flat
+    const flagAppearance = Platform.OS === "ios" ? "flat" : "shiny";
 
+    //getting the country flag
+    const flagImgUrl = `https://www.countryflags.io/${
+      this.props.country.flag
+    }/${flagAppearance}/64.png`;
+
+    //This is where the user can select a country. display activity indicator until country loaded
     const getCountryRow =
       this.props.country.name === null ? (
         <ActivityIndicator size="large" style={{ marginTop: 150 }} />
@@ -204,6 +202,7 @@ class Home extends Component {
         </View>
       );
 
+    //This is where the user can enter an amount from which the tip will be calculated
     const getTipRow =
       this.props.country.name === null ? null : (
         <View style={styles.tipRow}>

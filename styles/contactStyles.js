@@ -2,19 +2,17 @@ export default {
   container: {
     width: "100%",
     height: "100%",
-    backgroundColor: "#eee",
-    // justifyContent: "space-between",
-    // alignItems: "center"
+    backgroundColor: "#eee"
   },
   privacy: {
-    position: 'absolute',
+    position: "absolute",
     top: "5%",
     right: "4%",
     paddingTop: 3,
     paddingBottom: 3,
     paddingLeft: 5,
     paddingRight: 5,
-    backgroundColor: '#eee',
+    backgroundColor: "#eee",
     borderRadius: 15
   },
   contactWrapper: {
@@ -24,7 +22,6 @@ export default {
     width: "90%",
     marginLeft: "5%",
     marginRight: "5%",
-    // marginTop: "23%",
     top: "15%",
     padding: "8%",
     borderWidth: 1,
@@ -34,12 +31,8 @@ export default {
     justifyContent: "space-between"
   },
   touchableWrapper: {
-    // flex: 1,
-    // marginTop: 10,
-    // marginBottom: 10,
     borderStyle: "solid",
     backgroundColor: "#fff",
-    // justifyContent: "center",
     height: "30%",
     borderWidth: 1,
     borderRadius: 20,
