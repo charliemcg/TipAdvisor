@@ -2,7 +2,7 @@
 
 Advanced tip calculator which adjusts for country and tipping situation.
 
-Had issues with old original repository (TipAdvisorEjected). Created this repo for the development of the iOS release.
+Had issues with old original repository (https://github.com/charliemcg/TipAdvisorEjected). Created this repo for the development of the iOS release.
 
 # Available Now
 
