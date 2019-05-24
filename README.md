@@ -1,4 +1,7 @@
-# TipAdvisor
+# Tip Advisor
+
+Advanced tip calculator which accounts for different countries and tipping situations.
+
 Had issues with old original repository (https://github.com/charliemcg/TipAdvisorEjected). Created this repo for the development of the iOS release.
 
 
