@@ -18,8 +18,8 @@ const EMAIL = "violenthoboenterprises@gmail.com";
 //link to store listing
 const REVIEW =
   Platform.OS === "ios"
-    ? ""
-    : "https://play.google.com/store/apps/details?id=com.tipadvisor"; //Need to get the link for both ios and android
+    ? "https://itunes.apple.com/WebObjects/MZStore.woa/wa/viewSoftware?id=1464879497&mt=8"
+    : "https://play.google.com/store/apps/details?id=com.tipadvisor";
 
 //link to developer page
 const MORE_APPS =
@@ -74,12 +74,7 @@ class Contact extends Component {
     return (
       <View style={styles.container}>
         <Title />
-        {/**
-         *
-         * Reinstate the Privacy Policy button after fixing up the Contact button
-         *
-         */}
-        {/* <TouchableHighlight
+        <TouchableHighlight
           onPress={() => this.props.navigation.navigate("PrivacyPolicy")}
           style={styles.privacy}
           underlayColor="#022d1a"
@@ -92,7 +87,8 @@ class Contact extends Component {
           >
             Privacy
           </Text>
-        </TouchableHighlight> */}
+        </TouchableHighlight>
+
         <View style={styles.contactWrapper}>
           {/**
            *
@@ -119,13 +115,13 @@ class Contact extends Component {
 
           <View style={styles.touchableWrapper}>
             <TouchableHighlight
-              onPress={() => this.props.navigation.navigate("PrivacyPolicy")}
+              onPress={() => this.handleReview()}
               underlayColor="#eee"
               style={{ borderRadius: 20 }}
             >
               {this.getTouchContent({
-                text: "Privacy Policy",
-                iconName: "file-document-box"
+                text: "Leave a review",
+                iconName: "star-face"
               })}
             </TouchableHighlight>
           </View>

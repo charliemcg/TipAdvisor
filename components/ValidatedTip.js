@@ -6,20 +6,18 @@ import { calculateTip, setSelectedIndex } from "../actions";
 
 //If tipping is optional display this text
 function IsOptional(value) {
-  const sizeAdjustedStyles = getSize();
   return value.country.tips[value.country.selectedTipIndex].optional ? (
-    <Text style={sizeAdjustedStyles.optional}>Tipping optional</Text>
+    <Text style={styles.optional}>Tipping optional</Text>
   ) : null;
 }
 
 //Inform user that the selected situation doesn't need tipping
 function CheckForZeroTip(props) {
-  const sizeAdjustedStyles = getSize();
   if (props.tipAmount === 0) {
-    return <Text style={sizeAdjustedStyles.text}>No need to tip.</Text>;
+    return <Text style={styles.text}>No need to tip.</Text>;
   }
   return (
-    <Text style={sizeAdjustedStyles.text}>
+    <Text style={styles.text}>
       {props.currency}
       {props.amount}
     </Text>
