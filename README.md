@@ -1,5 +1,5 @@
 # TipAdvisor
-Had issues with old original repository (TipAdvisorEjected). Created this repo for the development of the iOS release.
+Had issues with old original repository (https://github.com/charliemcg/TipAdvisorEjected). Created this repo for the development of the iOS release.
 
 
 Android: https://play.google.com/store/apps/details?id=com.tipadvisor
