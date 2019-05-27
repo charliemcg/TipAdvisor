@@ -7,10 +7,11 @@
     "test": "jest"
   },
   "dependencies": {
-    "@react-native-community/async-storage": "^1.4.0",
+    "@react-native-community/async-storage": "^1.4.1",
     "react": "16.8.3",
     "react-native": "0.59.8",
-    "react-native-device-info": "^2.0.0",
+    "react-native-device-detection": "^0.2.0",
+    "react-native-device-info": "^2.0.2",
     "react-native-email": "^1.0.2",
     "react-native-gesture-handler": "^1.2.1",
     "react-native-modal-selector": "^1.0.3",

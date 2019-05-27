@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { changeCountry, calculateTip } from "../../actions";
 import { countries } from "../../countryList";
 import ModalSelector from "react-native-modal-selector";
+import styles from "./styles";
 
 class CountryPicker extends Component {
   //country was changed
@@ -21,16 +22,10 @@ class CountryPicker extends Component {
         data={pickerItems}
         initValue={this.props.country.name}
         onChange={value => this.handleChange(value.label)}
-        style={{
-          height: "100%",
-          width: "100%"
-        }}
-        selectStyle={{
-          height: "100%",
-          justifyContent: "center"
-        }}
-        selectTextStyle={{ fontSize: 15 }}
-        optionTextStyle={{ color: "#338a3e" }}
+        style={styles.style}
+        selectStyle={styles.selectStyle}
+        selectTextStyle={styles.selectTextStyle}
+        optionTextStyle={styles.optionTextStyle}
       />
     );
   }
