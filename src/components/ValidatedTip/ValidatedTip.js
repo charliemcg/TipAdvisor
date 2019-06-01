@@ -4,6 +4,7 @@ import { Text, View, TouchableHighlight, ScrollView } from "react-native";
 import styles from "./styles";
 import { calculateTip, setSelectedIndex } from "../../actions";
 import * as Animatable from "react-native-animatable";
+import PropTypes from "prop-types";
 
 //If tipping is optional display this text
 function IsOptional(value) {
@@ -174,6 +175,40 @@ class ValidatedTip extends Component {
     }
   }
 }
+
+ValidatedTip.propTypes = {
+  country: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    flag: PropTypes.string.isRequired,
+    tips: PropTypes.arrayOf(
+      PropTypes.shape({
+        type: PropTypes.string,
+        percentage: PropTypes.number,
+        optional: PropTypes.bool
+      })
+    )
+  }),
+  selectedTipIndex: PropTypes.number,
+  enteredValue: PropTypes.number,
+  amount: PropTypes.number,
+  err: PropTypes.string
+};
+
+ValidatedTip.defaultProps = {
+  country: PropTypes.shape({
+    tips: PropTypes.arrayOf(
+      PropTypes.shape({
+        type: null,
+        percentage: 0,
+        optional: true
+      })
+    )
+  }),
+  selectedTipIndex: 0,
+  enteredValue: 0,
+  amount: 0.0,
+  err: null
+};
 
 const mapStateToProps = state => {
   return {
