@@ -1,5 +1,6 @@
 import { countries } from "./countryList";
 import AsyncStorage from "@react-native-community/async-storage";
+import constants from "./constants";
 
 //get all details related to the selected country
 function findCountry(payload) {
@@ -29,17 +30,17 @@ function getPlaceholderCountry() {
 const reducer = (state = getPlaceholderCountry(), action) => {
   switch (action.type) {
     //updating the selected country
-    case "CHANGE_COUNTRY":
+    case constants.changeCountry:
       let newCountry = findCountry(action.payload);
       // Persisting new country in AsyncStorage
-      AsyncStorage.setItem("COUNTRY", newCountry.name);
+      AsyncStorage.setItem(constants.persistedCountry, newCountry.name);
       state = {
         ...state,
         country: newCountry
       };
       break;
     //calculating the tip
-    case "CALCULATE_TIP":
+    case constants.calculateTip:
       let newAmount =
         action.payload *
         state.country.tips[state.country.selectedTipIndex].percentage;
@@ -51,7 +52,7 @@ const reducer = (state = getPlaceholderCountry(), action) => {
       };
       break;
     //setting the selected tip type
-    case "SET_INDEX":
+    case constants.setItem:
       state = {
         ...state,
         country: {
@@ -65,7 +66,7 @@ const reducer = (state = getPlaceholderCountry(), action) => {
       };
       break;
     //setting the error type
-    case "SET_ERROR":
+    case constants.setError:
       state = {
         ...state,
         err: action.payload

@@ -1,29 +1,30 @@
 import { Alert } from "react-native";
+import constants from "./constants";
 
 export function changeCountry(country) {
   return {
-    type: "CHANGE_COUNTRY",
+    type: constants.changeCountry,
     payload: country
   };
 }
 
 export function calculateTip(amount) {
   return {
-    type: "CALCULATE_TIP",
+    type: constants.calculateTip,
     payload: amount
   };
 }
 
 export function setSelectedIndex(index) {
   return {
-    type: "SET_INDEX",
+    type: constants.setIndex,
     payload: index
   };
 }
 
 export function setError(error) {
   return {
-    type: "SET_ERROR",
+    type: constants.setError,
     payload: error
   };
 }

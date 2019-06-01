@@ -18,6 +18,7 @@ import AsyncStorage from "@react-native-community/async-storage";
 import Title from "../Title";
 import * as Animatable from "react-native-animatable";
 import PropTypes from "prop-types";
+import constants from "../../constants";
 
 class Home extends Component {
   state = {
@@ -30,9 +31,9 @@ class Home extends Component {
     this.setState({ inputValue: event });
     if (this.props.country.tips[this.props.country.selectedTipIndex] !== null) {
       if (isNaN(event)) {
-        this.props.setError("NOT_A_NUMBER");
+        this.props.setError(constants.notANumber);
       } else if (event < 0) {
-        this.props.setError("NEGATIVE");
+        this.props.setError(constants.negative);
       } else if (event === "") {
         this.props.calculateTip(0);
         this.props.setError(null);
@@ -50,7 +51,7 @@ class Home extends Component {
 
   getCountryFromDevice = async () => {
     try {
-      const value = await AsyncStorage.getItem("COUNTRY");
+      const value = await AsyncStorage.getItem(constants.persistedCountry);
       if (value !== null) {
         //found a persisted country
         this.props.changeCountry(value);

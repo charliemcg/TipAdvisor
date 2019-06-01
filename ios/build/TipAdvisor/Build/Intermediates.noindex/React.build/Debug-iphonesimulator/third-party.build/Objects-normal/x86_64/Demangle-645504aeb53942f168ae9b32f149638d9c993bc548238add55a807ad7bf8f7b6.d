@@ -1,0 +1,24 @@
+dependencies: \
+  /Users/macbookair/Code/TipAdvisor/node_modules/react-native/third-party/folly-2018.10.22.00/folly/Demangle.cpp \
+  /Users/macbookair/Code/TipAdvisor/node_modules/react-native/third-party/folly-2018.10.22.00/folly/Demangle.h \
+  /Users/macbookair/Code/TipAdvisor/node_modules/react-native/third-party/folly-2018.10.22.00/folly/FBString.h \
+  /Users/macbookair/Code/TipAdvisor/node_modules/react-native/third-party/folly-2018.10.22.00/folly/CppAttributes.h \
+  /Users/macbookair/Code/TipAdvisor/node_modules/react-native/third-party/folly-2018.10.22.00/folly/Portability.h \
+  /Users/macbookair/Code/TipAdvisor/node_modules/react-native/third-party/folly-2018.10.22.00/folly/portability/Config.h \
+  /Users/macbookair/Code/TipAdvisor/node_modules/react-native/third-party/folly-2018.10.22.00/folly/CPortability.h \
+  /Users/macbookair/Code/TipAdvisor/node_modules/react-native/third-party/folly-2018.10.22.00/folly/Traits.h \
+  /Users/macbookair/Code/TipAdvisor/node_modules/react-native/third-party/folly-2018.10.22.00/folly/hash/Hash.h \
+  /Users/macbookair/Code/TipAdvisor/node_modules/react-native/third-party/folly-2018.10.22.00/folly/Utility.h \
+  /Users/macbookair/Code/TipAdvisor/node_modules/react-native/third-party/folly-2018.10.22.00/folly/functional/ApplyTuple.h \
+  /Users/macbookair/Code/TipAdvisor/node_modules/react-native/third-party/folly-2018.10.22.00/folly/functional/Invoke.h \
+  /Users/macbookair/Code/TipAdvisor/node_modules/react-native/third-party/folly-2018.10.22.00/folly/Preprocessor.h \
+  /Users/macbookair/Code/TipAdvisor/node_modules/react-native/third-party/folly-2018.10.22.00/folly/hash/SpookyHashV1.h \
+  /Users/macbookair/Code/TipAdvisor/node_modules/react-native/third-party/folly-2018.10.22.00/folly/hash/SpookyHashV2.h \
+  /Users/macbookair/Code/TipAdvisor/node_modules/react-native/third-party/folly-2018.10.22.00/folly/lang/Bits.h \
+  /Users/macbookair/Code/TipAdvisor/node_modules/react-native/third-party/folly-2018.10.22.00/folly/ConstexprMath.h \
+  /Users/macbookair/Code/TipAdvisor/node_modules/react-native/third-party/folly-2018.10.22.00/folly/lang/Assume.h \
+  /Users/macbookair/Code/TipAdvisor/node_modules/react-native/third-party/folly-2018.10.22.00/folly/portability/Builtins.h \
+  /Users/macbookair/Code/TipAdvisor/node_modules/react-native/third-party/folly-2018.10.22.00/folly/lang/Exception.h \
+  /Users/macbookair/Code/TipAdvisor/node_modules/react-native/third-party/folly-2018.10.22.00/folly/memory/Malloc.h \
+  /Users/macbookair/Code/TipAdvisor/node_modules/react-native/third-party/folly-2018.10.22.00/folly/memory/detail/MallocImpl.h \
+  /Users/macbookair/Code/TipAdvisor/node_modules/react-native/third-party/folly-2018.10.22.00/folly/detail/Demangle.h

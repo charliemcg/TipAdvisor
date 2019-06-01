@@ -5,6 +5,7 @@ import styles from "./styles";
 import { calculateTip, setSelectedIndex } from "../../actions";
 import * as Animatable from "react-native-animatable";
 import PropTypes from "prop-types";
+import constants from "../../constants";
 
 //If tipping is optional display this text
 function IsOptional(value) {
@@ -89,14 +90,14 @@ class ValidatedTip extends Component {
 
     switch (this.props.err) {
       //inform user to only input numbers
-      case "NOT_A_NUMBER":
+      case constants.notANumber:
         return (
           <View style={styles.textWrapper}>
             <Text style={styles.errorText}>Only use numbers.</Text>
           </View>
         );
       //inform user that they can't input negative numbers
-      case "NEGATIVE":
+      case constants.negative:
         return (
           <View style={styles.textWrapper}>
             <Text style={styles.errorText}>Don't use negative numbers.</Text>
