@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { Text, View, TouchableHighlight, ScrollView } from "react-native";
 import styles from "./styles";
 import { calculateTip, setSelectedIndex } from "../../actions";
+import * as Animatable from "react-native-animatable";
 
 //If tipping is optional display this text
 function IsOptional(value) {
@@ -56,30 +57,61 @@ class ValidatedTip extends Component {
   render() {
     const { name, tips, selectedTipIndex, currency } = this.props.country;
     //only show tip buttons if there are different tip types
+    // let tipButtons =
+    //   tips.length <= 1
+    //     ? null
+    //     : tips.map((item, i) => {
+    //         let useThisButtonStyle = styles.tipType;
+    //         let useThisTextStyle = styles.tipButtonText;
+    //         if (i === selectedTipIndex) {
+    //           useThisButtonStyle = styles.selectedTipType;
+    //           useThisTextStyle = styles.selectedTipButtonText;
+    //         }
+    //         return (
+    //           <View key={i}>
+    //             <TouchableHighlight
+    //               style={useThisButtonStyle}
+    //               onPress={() => {
+    //                 this.props.setSelectedIndex(i);
+    //                 this.props.calculateTip(this.props.enteredValue);
+    //               }}
+    //             >
+    //               <Text style={useThisTextStyle}>{item.type}</Text>
+    //             </TouchableHighlight>
+    //           </View>
+    //         );
+    //       });
+    /////////////////////////////////
     let tipButtons =
-      tips.length <= 1
-        ? null
-        : tips.map((item, i) => {
-            let useThisButtonStyle = styles.tipType;
-            let useThisTextStyle = styles.tipButtonText;
-            if (i === selectedTipIndex) {
-              useThisButtonStyle = styles.selectedTipType;
-              useThisTextStyle = styles.selectedTipButtonText;
-            }
-            return (
-              <View key={i}>
-                <TouchableHighlight
-                  style={useThisButtonStyle}
-                  onPress={() => {
-                    this.props.setSelectedIndex(i);
-                    this.props.calculateTip(this.props.enteredValue);
-                  }}
-                >
-                  <Text style={useThisTextStyle}>{item.type}</Text>
-                </TouchableHighlight>
-              </View>
-            );
-          });
+      tips.length > 1 &&
+      tips.map((item, i) => {
+        let useThisButtonStyle = styles.tipType;
+        let useThisTextStyle = styles.tipButtonText;
+        if (i === selectedTipIndex) {
+          useThisButtonStyle = styles.selectedTipType;
+          useThisTextStyle = styles.selectedTipButtonText;
+        }
+        return (
+          //cool staggered animation
+          <Animatable.View
+            key={i}
+            animation="slideInRight"
+            duration={300}
+            delay={i * 100}
+          >
+            <TouchableHighlight
+              style={useThisButtonStyle}
+              onPress={() => {
+                this.props.setSelectedIndex(i);
+                this.props.calculateTip(this.props.enteredValue);
+              }}
+            >
+              <Text style={useThisTextStyle}>{item.type}</Text>
+            </TouchableHighlight>
+          </Animatable.View>
+        );
+      });
+
     switch (this.props.err) {
       //inform user to only input numbers
       case "NOT_A_NUMBER":
