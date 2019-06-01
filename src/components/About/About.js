@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Text, View, ScrollView } from "react-native";
 import styles from "./styles";
 import Title from "../Title";
+import * as Animatable from "react-native-animatable";
 
 /**
  * This is a pretty static screen which merely displays text
@@ -11,7 +12,11 @@ class About extends Component {
     return (
       <View style={styles.container}>
         <Title />
-        <View style={styles.descriptionWrapper}>
+        <Animatable.View
+          animation="slideInUp"
+          duration={700}
+          style={styles.descriptionWrapper}
+        >
           <ScrollView>
             <Text style={styles.text}>
               Here are a few quick points about this app:{`\n\n`}
@@ -35,7 +40,7 @@ class About extends Component {
               changes I should make.
             </Text>
           </ScrollView>
-        </View>
+        </Animatable.View>
       </View>
     );
   }
