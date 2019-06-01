@@ -19,6 +19,8 @@ import Title from "../Title";
 import * as Animatable from "react-native-animatable";
 import PropTypes from "prop-types";
 import constants from "../../constants";
+import colors from "../../colors";
+import LinearGradient from "react-native-linear-gradient";
 
 class Home extends Component {
   state = {
@@ -195,6 +197,11 @@ class Home extends Component {
         ref="animatableFlag"
         style={styles.flag}
       >
+        {/* background used for prevent white flags from looking bad against a white background */}
+        <LinearGradient
+          colors={[colors.light, colors.light, colors.primary]}
+          style={styles.flagBackground}
+        />
         <TouchableWithoutFeedback
           onPress={() => this.refs["animatableFlag"].swing(500)}
         >
@@ -209,6 +216,8 @@ class Home extends Component {
         <ActivityIndicator size="large" style={{ marginTop: 150 }} />
       ) : (
         <Animatable.View style={styles.countryRow}>
+          {/* used to prevent the picker from touching the left side of the country row when no flag is present */}
+          <View style={styles.flagBuffer} />
           {getFlagView}
           <Animatable.View
             animation="slideInLeft"

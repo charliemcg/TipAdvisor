@@ -12,6 +12,7 @@ import email from "react-native-email";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 import Title from "../Title";
 import * as Animatable from "react-native-animatable";
+import colors from "../../colors";
 
 //Contact email
 const EMAIL = "violenthoboenterprises@gmail.com";
@@ -98,7 +99,7 @@ class Contact extends Component {
           <Animatable.View ref="review" style={styles.touchableWrapper}>
             <TouchableHighlight
               onPress={() => this.handleAnimation("review")}
-              underlayColor="#338a3e"
+              underlayColor={colors.primary}
               style={{ borderRadius: 20 }}
             >
               {this.getTouchContent({
@@ -112,7 +113,7 @@ class Contact extends Component {
           <Animatable.View ref="email" style={styles.touchableWrapper}>
             <TouchableHighlight
               onPress={() => this.handleAnimation("email")}
-              underlayColor="#338a3e"
+              underlayColor={colors.primary}
               style={{ borderRadius: 20 }}
             >
               {this.getTouchContent({
@@ -126,7 +127,7 @@ class Contact extends Component {
           <Animatable.View ref="moreApps" style={styles.touchableWrapper}>
             <TouchableHighlight
               onPress={() => this.handleAnimation("moreApps")}
-              underlayColor="#338a3e"
+              underlayColor={colors.primary}
               style={{ borderRadius: 20 }}
             >
               {this.getTouchContent({
