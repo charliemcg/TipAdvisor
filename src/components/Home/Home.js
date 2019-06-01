@@ -4,6 +4,7 @@ import {
   Image,
   TextInput,
   ActivityIndicator,
+  TouchableWithoutFeedback,
   Platform
 } from "react-native";
 import styles from "./styles";
@@ -15,6 +16,8 @@ import DeviceInfo from "react-native-device-info";
 import { countries } from "../../countryList";
 import AsyncStorage from "@react-native-community/async-storage";
 import Title from "../Title";
+import * as Animatable from "react-native-animatable";
+// import PropTypes from "prop-types";
 
 class Home extends Component {
   state = {
@@ -184,34 +187,47 @@ class Home extends Component {
       this.props.country.flag
     }/${flagAppearance}/64.png`;
 
+    const getFlagView = flagImgUrl !== null && (
+      <Animatable.View
+        animation="slideInRight"
+        duration={700}
+        ref="animatableFlag"
+        style={styles.flag}
+      >
+        <TouchableWithoutFeedback
+          onPress={() => this.refs["animatableFlag"].swing(500)}
+        >
+          <Image source={{ uri: flagImgUrl }} style={styles.flagDimensions} />
+        </TouchableWithoutFeedback>
+      </Animatable.View>
+    );
+
     //This is where the user can select a country. display activity indicator until country loaded
     const getCountryRow =
       this.props.country.name === null ? (
         <ActivityIndicator size="large" style={{ marginTop: 150 }} />
       ) : (
-        <View style={styles.countryRow}>
-          <View style={styles.flag}>
-            <Image
-              source={{ uri: flagImgUrl }}
-              style={{ width: 50, height: 50 }}
-            />
-          </View>
-          <View style={styles.picker}>
+        <Animatable.View style={styles.countryRow}>
+          {getFlagView}
+          <Animatable.View
+            animation="slideInLeft"
+            duration={700}
+            style={styles.picker}
+          >
             <Picker />
-          </View>
-        </View>
+          </Animatable.View>
+        </Animatable.View>
       );
 
     //This is where the user can enter an amount from which the tip will be calculated
-    const getTipRow =
-      this.props.country.name === null ? null : (
-        <View style={styles.tipRow}>
-          {getTextInput}
-          <View style={styles.description}>
-            <ValidatedTip />
-          </View>
+    const getTipRow = this.props.country.name !== null && (
+      <View style={styles.tipRow}>
+        {getTextInput}
+        <View style={styles.description}>
+          <ValidatedTip />
         </View>
-      );
+      </View>
+    );
 
     return (
       <View style={styles.container}>
@@ -223,6 +239,32 @@ class Home extends Component {
     );
   }
 }
+
+// Home.propTypes = {
+//   country: PropTypes.shape({
+//     name: PropTypes.string,
+//     flag: PropTypes.string,
+//     tips: PropTypes.array
+//   }),
+//   selectedTipIndex: PropTypes.string,
+//   currency: PropTypes.string,
+//   amount: PropTypes.number,
+//   err: PropTypes.string
+// };
+
+// Home.defaultPropTypes = {
+//   country: PropTypes.objectOf(
+//     PropTypes.shape({
+//       name: null,
+//       flag: null,
+//       tips: null
+//     })
+//   ),
+//   selectedTipIndex: null,
+//   currency: null,
+//   amount: 0.0,
+//   err: null
+// };
 
 const mapStateToProps = state => {
   return {
