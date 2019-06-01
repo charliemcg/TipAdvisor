@@ -1,13 +1,15 @@
 import React, { Component } from "react";
-import { Text, ScrollView } from "react-native";
+import { Text, ScrollView, SafeAreaView } from "react-native";
 import styles from "./styles";
 
 class PrivacyPolicy extends Component {
   render() {
     return (
-      <ScrollView style={styles.scrollView}>
-        <Text style={styles.text}>{thePolicy}</Text>
-      </ScrollView>
+      <SafeAreaView>
+        <ScrollView style={styles.scrollView}>
+          <Text style={styles.text}>{thePolicy}</Text>
+        </ScrollView>
+      </SafeAreaView>
     );
   }
 }
