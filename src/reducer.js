@@ -52,7 +52,7 @@ const reducer = (state = getPlaceholderCountry(), action) => {
       };
       break;
     //setting the selected tip type
-    case constants.setItem:
+    case constants.setIndex:
       state = {
         ...state,
         country: {

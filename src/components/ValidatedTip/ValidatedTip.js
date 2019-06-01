@@ -1,11 +1,18 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { Text, View, TouchableHighlight, ScrollView } from "react-native";
+import {
+  Text,
+  View,
+  TouchableHighlight,
+  ScrollView,
+  Alert
+} from "react-native";
 import styles from "./styles";
 import { calculateTip, setSelectedIndex } from "../../actions";
 import * as Animatable from "react-native-animatable";
 import PropTypes from "prop-types";
 import constants from "../../constants";
+import colors from "../../colors";
 
 //If tipping is optional display this text
 function IsOptional(value) {
@@ -81,6 +88,7 @@ class ValidatedTip extends Component {
                 this.props.setSelectedIndex(i);
                 this.props.calculateTip(this.props.enteredValue);
               }}
+              underlayColor={colors.light}
             >
               <Text style={useThisTextStyle}>{item.type}</Text>
             </TouchableHighlight>
