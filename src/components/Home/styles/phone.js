@@ -27,7 +27,6 @@ export default {
   },
   flagBackground: {
     position: "absolute",
-    // backgroundColor: "#338a3e",
     height: height * 0.09,
     width: height * 0.09,
     borderRadius: (height * 0.09) / 2
@@ -36,7 +35,8 @@ export default {
     justifyContent: "center",
     alignItems: "center",
     height: "100%",
-    flex: 2
+    flex: 2,
+    zIndex: 1
   },
   flagDimensions: {
     width: height * 0.06,

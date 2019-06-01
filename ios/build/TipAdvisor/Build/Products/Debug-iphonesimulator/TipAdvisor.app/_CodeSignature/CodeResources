@@ -42,7 +42,7 @@
 		</data>
 		<key>Assets.car</key>
 		<data>
-		s8HdcetelmAk8+6b/4tGYd6LL5M=
+		9JMbvjN7iydD4nTnwh3HzVfm1s4=
 		</data>
 		<key>Base.lproj/LaunchScreen.nib</key>
 		<data>
@@ -171,7 +171,7 @@
 		</data>
 		<key>PlugIns/TipAdvisorTests.xctest.dSYM/Contents/Resources/DWARF/TipAdvisorTests</key>
 		<data>
-		H1+K3d+GgVsVMdt2+kQ9aqxcgfc=
+		UAhHOfBp/Lvfg9wOMJ+cHmzw0/c=
 		</data>
 		<key>PlugIns/TipAdvisorTests.xctest/Info.plist</key>
 		<data>
@@ -179,7 +179,7 @@
 		</data>
 		<key>PlugIns/TipAdvisorTests.xctest/TipAdvisorTests</key>
 		<data>
-		E56d1LDRGlrI0zz08lu0fOXqQ50=
+		ukeMv7LIp7zYpEpZfK1TtkMSOKI=
 		</data>
 		<key>PlugIns/TipAdvisorTests.xctest/_CodeSignature/CodeResources</key>
 		<data>
@@ -299,11 +299,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			s8HdcetelmAk8+6b/4tGYd6LL5M=
+			9JMbvjN7iydD4nTnwh3HzVfm1s4=
 			</data>
 			<key>hash2</key>
 			<data>
-			reU+89n8udHtfzkKOqPeR3GrnH/loI4sjIwbWqnAEZ0=
+			80kk0kJKYMFbWeBzFA9JoZMklhr6I84RduzaKnJrBgg=
 			</data>
 		</dict>
 		<key>Base.lproj/LaunchScreen.nib</key>
@@ -620,11 +620,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			H1+K3d+GgVsVMdt2+kQ9aqxcgfc=
+			UAhHOfBp/Lvfg9wOMJ+cHmzw0/c=
 			</data>
 			<key>hash2</key>
 			<data>
-			CypbwK8FTZpa9b0oP2HHVpFYARb6L2knrVro1/DtZqM=
+			iiUrGXrn1ApHDE5Di6Z/ovx32MTh6CPLTZJzVnRBJz0=
 			</data>
 		</dict>
 		<key>PlugIns/TipAdvisorTests.xctest/Info.plist</key>
@@ -642,11 +642,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			E56d1LDRGlrI0zz08lu0fOXqQ50=
+			ukeMv7LIp7zYpEpZfK1TtkMSOKI=
 			</data>
 			<key>hash2</key>
 			<data>
-			9sxkGX8wT38VBmAzg3ET4BhM4Dgw3xoKIH8VacTSCIk=
+			pjc4d1dilHiNO/aMt0JjEa9HSLdRVBcwMouTgC6i1HA=
 			</data>
 		</dict>
 		<key>PlugIns/TipAdvisorTests.xctest/_CodeSignature/CodeResources</key>

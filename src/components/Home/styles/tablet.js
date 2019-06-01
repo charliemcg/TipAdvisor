@@ -1,3 +1,6 @@
+import { Dimensions } from "react-native";
+const height = Dimensions.get("window").height;
+
 export default {
   container: {
     width: "100%",
@@ -16,20 +19,32 @@ export default {
     borderWidth: 1,
     borderRadius: 20,
     borderColor: "#ddd",
-    elevation: 6
+    elevation: 6,
+    zIndex: 1
+  },
+  flagBuffer: {
+    width: "5%"
+  },
+  flagBackground: {
+    position: "absolute",
+    height: height * 0.09,
+    width: height * 0.09,
+    borderRadius: (height * 0.09) / 2
   },
   flag: {
-    position: "absolute",
-    width: "30%",
     justifyContent: "center",
-    alignItems: "center"
+    alignItems: "center",
+    height: "100%",
+    flex: 2,
+    zIndex: 1
+  },
+  flagDimensions: {
+    width: height * 0.06,
+    height: height * 0.06
   },
   picker: {
-    position: "absolute",
-    width: "68%",
-    right: 0,
     height: "50%",
-    marginRight: "5%"
+    flex: 6
   },
   tipRow: {
     flex: 5
