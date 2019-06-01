@@ -4,6 +4,7 @@ import { changeCountry, calculateTip } from "../../actions";
 import { countries } from "../../countryList";
 import ModalSelector from "react-native-modal-selector";
 import styles from "./styles";
+import PropTypes from "prop-types";
 
 class CountryPicker extends Component {
   //country was changed
@@ -30,6 +31,40 @@ class CountryPicker extends Component {
     );
   }
 }
+
+CountryPicker.propTypes = {
+  country: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    flag: PropTypes.string.isRequired,
+    tips: PropTypes.arrayOf(
+      PropTypes.shape({
+        type: PropTypes.string,
+        percentage: PropTypes.number,
+        optional: PropTypes.bool
+      })
+    )
+  }),
+  selectedTipIndex: PropTypes.number,
+  enteredValue: PropTypes.number,
+  amount: PropTypes.number,
+  err: PropTypes.string
+};
+
+CountryPicker.defaultProps = {
+  country: PropTypes.shape({
+    tips: PropTypes.arrayOf(
+      PropTypes.shape({
+        type: null,
+        percentage: 0,
+        optional: true
+      })
+    )
+  }),
+  selectedTipIndex: 0,
+  enteredValue: 0,
+  amount: 0.0,
+  err: null
+};
 
 const mapStateToProps = state => {
   return {
