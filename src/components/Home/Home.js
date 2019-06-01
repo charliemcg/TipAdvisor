@@ -17,7 +17,7 @@ import { countries } from "../../countryList";
 import AsyncStorage from "@react-native-community/async-storage";
 import Title from "../Title";
 import * as Animatable from "react-native-animatable";
-// import PropTypes from "prop-types";
+import PropTypes from "prop-types";
 
 class Home extends Component {
   state = {
@@ -240,31 +240,31 @@ class Home extends Component {
   }
 }
 
-// Home.propTypes = {
-//   country: PropTypes.shape({
-//     name: PropTypes.string,
-//     flag: PropTypes.string,
-//     tips: PropTypes.array
-//   }),
-//   selectedTipIndex: PropTypes.string,
-//   currency: PropTypes.string,
-//   amount: PropTypes.number,
-//   err: PropTypes.string
-// };
+Home.propTypes = {
+  country: PropTypes.shape({
+    name: PropTypes.string,
+    flag: PropTypes.string,
+    tips: PropTypes.array
+  }),
+  selectedTipIndex: PropTypes.string,
+  currency: PropTypes.string,
+  amount: PropTypes.number,
+  err: PropTypes.string
+};
 
-// Home.defaultPropTypes = {
-//   country: PropTypes.objectOf(
-//     PropTypes.shape({
-//       name: null,
-//       flag: null,
-//       tips: null
-//     })
-//   ),
-//   selectedTipIndex: null,
-//   currency: null,
-//   amount: 0.0,
-//   err: null
-// };
+Home.defaultPropTypes = {
+  country: PropTypes.objectOf(
+    PropTypes.shape({
+      name: null,
+      flag: null,
+      tips: null
+    })
+  ),
+  selectedTipIndex: null,
+  currency: null,
+  amount: 0.0,
+  err: null
+};
 
 const mapStateToProps = state => {
   return {
