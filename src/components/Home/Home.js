@@ -114,63 +114,63 @@ class Home extends Component {
 
   render() {
     //Only need text input if country accepts tips
-    const getTextInput =
-      this.props.country.tips[this.props.country.selectedTipIndex] ===
-      null ? null : (
-        <TextInput
-          style={styles.input}
-          keyboardType="numeric"
-          returnKeyType="done"
-          onChangeText={this.handleChange}
-          placeholder="amount..."
-          placeholderTextColor="#666"
-          maxLength={8}
-          onBlur={() => {
-            if (!isNaN(this.state.inputValue) && this.state.inputValue > 0) {
-              this.setState({
-                inputValue: `${this.props.country.currency}${
-                  this.state.inputValue
-                }`
-              });
-            }
-          }}
-          onFocus={() => {
-            //remove currency symbol while user is typing
-            let prefixRemovedValue = this.state.inputValue;
-            let sliceAmount = 0;
-            if (prefixRemovedValue !== null && isNaN(prefixRemovedValue)) {
-              const { currency } = this.props.country;
-              if (currency.length === 1) {
-                sliceAmount = 1;
-              } else if (currency.length === 2) {
-                sliceAmount = 2;
-              } else if (currency.length === 3) {
-                sliceAmount = 3;
-              } else if (currency.length === 4) {
-                sliceAmount = 4;
-              } else {
-                //error occured
-                prefixRemovedValue = null;
-              }
-              if (prefixRemovedValue !== null) {
-                prefixRemovedValue = prefixRemovedValue.slice(sliceAmount);
-              }
-            }
-            if (
-              prefixRemovedValue !== null &&
-              !isNaN(prefixRemovedValue) &&
-              prefixRemovedValue > 0
-            ) {
-              this.setState({
-                inputValue: this.state.inputValue.slice(sliceAmount)
-              });
+    const getTextInput = this.props.country.tips[
+      this.props.country.selectedTipIndex
+    ] !== null && (
+      <TextInput
+        style={styles.input}
+        keyboardType="numeric"
+        returnKeyType="done"
+        onChangeText={this.handleChange}
+        placeholder="amount..."
+        placeholderTextColor="#666"
+        maxLength={8}
+        onBlur={() => {
+          if (!isNaN(this.state.inputValue) && this.state.inputValue > 0) {
+            this.setState({
+              inputValue: `${this.props.country.currency}${
+                this.state.inputValue
+              }`
+            });
+          }
+        }}
+        onFocus={() => {
+          //remove currency symbol while user is typing
+          let prefixRemovedValue = this.state.inputValue;
+          let sliceAmount = 0;
+          if (prefixRemovedValue !== null && isNaN(prefixRemovedValue)) {
+            const { currency } = this.props.country;
+            if (currency.length === 1) {
+              sliceAmount = 1;
+            } else if (currency.length === 2) {
+              sliceAmount = 2;
+            } else if (currency.length === 3) {
+              sliceAmount = 3;
+            } else if (currency.length === 4) {
+              sliceAmount = 4;
             } else {
-              this.setState({ inputValue: null });
+              //error occured
+              prefixRemovedValue = null;
             }
-          }}
-          value={this.state.inputValue}
-        />
-      );
+            if (prefixRemovedValue !== null) {
+              prefixRemovedValue = prefixRemovedValue.slice(sliceAmount);
+            }
+          }
+          if (
+            prefixRemovedValue !== null &&
+            !isNaN(prefixRemovedValue) &&
+            prefixRemovedValue > 0
+          ) {
+            this.setState({
+              inputValue: this.state.inputValue.slice(sliceAmount)
+            });
+          } else {
+            this.setState({ inputValue: null });
+          }
+        }}
+        value={this.state.inputValue}
+      />
+    );
 
     //Adding whitespace for a better look
     const getBuffer =
