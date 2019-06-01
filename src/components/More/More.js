@@ -11,6 +11,7 @@ import styles from "./styles";
 import email from "react-native-email";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 import Title from "../Title";
+import * as Animatable from "react-native-animatable";
 
 //Contact email
 const EMAIL = "violenthoboenterprises@gmail.com";
@@ -28,23 +29,26 @@ const MORE_APPS =
     : "https://play.google.com/store/apps/developer?id=ViolentHoboEnterprises";
 
 class Contact extends Component {
-  //go to app listing
-  handleReview = () => {
-    Linking.openURL(REVIEW).catch(err =>
-      console.error("An error occurred", err)
-    );
-  };
-
-  //go to developer page
-  handleMoreApps = () => {
-    Linking.openURL(MORE_APPS).catch(err =>
-      console.error("An error occurred", err)
-    );
-  };
-
-  //open email app and populate 'to' field with developer's email address
-  handleEmail = () => {
-    email(EMAIL, {}).catch(err => console.error("An error occured", err));
+  handleAnimation = ref => {
+    //animate the button before doing anything else
+    this.refs[ref].rubberBand(500).then(endState => {
+      //carry out the button's purpose
+      switch (ref) {
+        case "review":
+          Linking.openURL(REVIEW).catch(err =>
+            console.error("An error occurred", err)
+          );
+          break;
+        case "email":
+          email(EMAIL, {}).catch(err => console.error("An error occured", err));
+          break;
+        case "moreApps":
+          Linking.openURL(MORE_APPS).catch(err =>
+            console.error("An error occurred", err)
+          );
+          break;
+      }
+    });
   };
 
   //setting icon size based on screen size
@@ -77,7 +81,7 @@ class Contact extends Component {
         <TouchableHighlight
           onPress={() => this.props.navigation.navigate("PrivacyPolicy")}
           style={styles.privacy}
-          underlayColor="#022d1a"
+          underlayColor="#ccc"
         >
           <Text
             style={{
@@ -90,33 +94,11 @@ class Contact extends Component {
         </TouchableHighlight>
 
         <View style={styles.contactWrapper}>
-          {/**
-           *
-           * Reinstate the review button after getting the link from the app store
-           *
-           */}
-
-          {/* <View style={styles.touchableWrapper}>
+          {/* review */}
+          <Animatable.View ref="review" style={styles.touchableWrapper}>
             <TouchableHighlight
-              onPress={() => this.handleReview()}
-              underlayColor="#eee"
-              style={{ borderRadius: 20 }}
-            >
-              <View style={styles.touchWrapper}>
-                <View style={styles.textWrapper}>
-                  <Text style={styles.text}>Leave a review</Text>
-                </View>
-                <View style={styles.imgWrapper}>
-                  <Icon name="star-face" color={"#888"} size={iconSize} />
-                </View>
-              </View>
-            </TouchableHighlight>
-          </View> */}
-
-          <View style={styles.touchableWrapper}>
-            <TouchableHighlight
-              onPress={() => this.handleReview()}
-              underlayColor="#eee"
+              onPress={() => this.handleAnimation("review")}
+              underlayColor="#338a3e"
               style={{ borderRadius: 20 }}
             >
               {this.getTouchContent({
@@ -124,12 +106,13 @@ class Contact extends Component {
                 iconName: "star-face"
               })}
             </TouchableHighlight>
-          </View>
+          </Animatable.View>
 
-          <View style={styles.touchableWrapper}>
+          {/* email */}
+          <Animatable.View ref="email" style={styles.touchableWrapper}>
             <TouchableHighlight
-              onPress={() => this.handleEmail()}
-              underlayColor="#eee"
+              onPress={() => this.handleAnimation("email")}
+              underlayColor="#338a3e"
               style={{ borderRadius: 20 }}
             >
               {this.getTouchContent({
@@ -137,12 +120,13 @@ class Contact extends Component {
                 iconName: "email-outline"
               })}
             </TouchableHighlight>
-          </View>
+          </Animatable.View>
 
-          <View style={styles.touchableWrapper}>
+          {/* more apps */}
+          <Animatable.View ref="moreApps" style={styles.touchableWrapper}>
             <TouchableHighlight
-              onPress={() => this.handleMoreApps()}
-              underlayColor="#eee"
+              onPress={() => this.handleAnimation("moreApps")}
+              underlayColor="#338a3e"
               style={{ borderRadius: 20 }}
             >
               {this.getTouchContent({
@@ -150,7 +134,7 @@ class Contact extends Component {
                 iconName: "cellphone-arrow-down"
               })}
             </TouchableHighlight>
-          </View>
+          </Animatable.View>
         </View>
         <View style={styles.credit}>
           <Text style={styles.creditText}>
