@@ -1,5 +1,4 @@
 import { Dimensions } from "react-native";
-// import colors from "../../../colors";
 const height = Dimensions.get("window").height;
 
 export default {
@@ -14,40 +13,37 @@ export default {
     backgroundColor: "#fff",
     alignItems: "center",
     top: "20%",
-    marginLeft: "3%",
+    left: "3%",
+    right: "3%",
     height: "15%",
-    width: "94%",
     borderWidth: 1,
     borderRadius: 20,
     borderColor: "#ddd",
-    elevation: 6
+    elevation: 6,
+    zIndex: 1
   },
-  // flag: {
-  //   position: "absolute",
-  //   width: "30%",
-  //   justifyContent: "center",
-  //   alignItems: "center"
-  // },
+  flagBuffer: {
+    width: "5%"
+  },
+  flagBackground: {
+    position: "absolute",
+    // backgroundColor: "#338a3e",
+    height: height * 0.09,
+    width: height * 0.09,
+    borderRadius: (height * 0.09) / 2
+  },
   flag: {
     justifyContent: "center",
-    alignItems: "flex-end",
+    alignItems: "center",
     height: "100%",
     flex: 2
   },
-  // picker: {
-  //   position: "absolute",
-  //   width: "68%",
-  //   right: 0,
-  //   height: "50%",
-  //   marginRight: "5%"
-  // },
   flagDimensions: {
-    width: height * 0.08,
-    height: height * 0.08
+    width: height * 0.06,
+    height: height * 0.06
   },
   picker: {
     height: "50%",
-    alignItems: "center",
     flex: 6
   },
   tipRow: {

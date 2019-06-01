@@ -1,7 +1,7 @@
 export default {
   style: {
     height: "100%",
-    width: "90%"
+    width: "94%"
   },
   selectStyle: {
     height: "100%",
