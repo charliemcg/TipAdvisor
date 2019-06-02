@@ -5,6 +5,39 @@
 	<key>logFormatVersion</key>
 	<integer>10</integer>
 	<key>logs</key>
-	<dict/>
+	<dict>
+		<key>0E68D6D2-BB04-4A65-BC0C-803AADC2E756</key>
+		<dict>
+			<key>className</key>
+			<string>IDECommandLineBuildLog</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>0E68D6D2-BB04-4A65-BC0C-803AADC2E756.xcactivitylog</string>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>TipAdvisor project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>TipAdvisor</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Building project TipAdvisor with scheme TipAdvisor and configuration Debug</string>
+			<key>timeStartedRecording</key>
+			<real>581151494.61872995</real>
+			<key>timeStoppedRecording</key>
+			<real>581151510.29122901</real>
+			<key>title</key>
+			<string>Building project TipAdvisor with scheme TipAdvisor and configuration Debug</string>
+			<key>uniqueIdentifier</key>
+			<string>0E68D6D2-BB04-4A65-BC0C-803AADC2E756</string>
+		</dict>
+	</dict>
 </dict>
 </plist>
