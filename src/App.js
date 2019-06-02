@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Provider } from "react-redux";
-import { Platform, StatusBar, View, Alert } from "react-native";
+import { Platform, StatusBar, View } from "react-native";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 import {
   createBottomTabNavigator,
