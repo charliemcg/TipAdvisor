@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Provider } from "react-redux";
-import { Platform, StatusBar, View } from "react-native";
+import { Platform, StatusBar, View, Alert } from "react-native";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 import {
   createBottomTabNavigator,
@@ -11,7 +11,9 @@ import Contact from "./components/More";
 import PrivacyPolicy from "./components/PrivacyPolicy";
 import About from "./components/About";
 import Home from "./components/Home";
+import Splash from "./components/Splash";
 import store from "./store";
+import colors from "./colors";
 
 // setting the appearance of the status bar
 const MyStatusBar = ({ backgroundColor, ...props }) => (
@@ -60,8 +62,12 @@ ContactNavigator.navigationOptions = ({ navigation }) => {
   };
 };
 
+/**
+ * make first route a splash screen which navigates to Home after a few seconds
+ */
+
 // the main navigation style for this app is bottom tab
-const Navigator = createBottomTabNavigator(
+const TabNavigator = createBottomTabNavigator(
   {
     Home: {
       screen: Home,
@@ -90,7 +96,7 @@ const Navigator = createBottomTabNavigator(
   },
   {
     tabBarOptions: {
-      activeTintColor: "#338a3e",
+      activeTintColor: colors.dark,
       labelStyle: {
         fontSize: 15
       },
@@ -101,7 +107,22 @@ const Navigator = createBottomTabNavigator(
   }
 );
 
-const Container = createAppContainer(Navigator);
+const SplashNavigator = createStackNavigator({
+  Splash: {
+    screen: Splash,
+    navigationOptions: {
+      header: null
+    }
+  },
+  Tabs: {
+    screen: TabNavigator,
+    navigationOptions: {
+      header: null
+    }
+  }
+});
+
+const Container = createAppContainer(SplashNavigator);
 
 class App extends Component {
   render() {
