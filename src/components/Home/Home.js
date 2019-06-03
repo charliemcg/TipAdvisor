@@ -21,6 +21,7 @@ import PropTypes from "prop-types";
 import constants from "../../constants";
 import colors from "../../colors";
 import LinearGradient from "react-native-linear-gradient";
+import strings from "../../strings";
 
 class Home extends Component {
   state = {
@@ -125,7 +126,7 @@ class Home extends Component {
         keyboardType="numeric"
         returnKeyType="done"
         onChangeText={this.handleChange}
-        placeholder="amount..."
+        placeholder={strings.amount}
         placeholderTextColor="#666"
         maxLength={8}
         onBlur={() => {

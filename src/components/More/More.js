@@ -13,6 +13,7 @@ import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 import Title from "../Title";
 import * as Animatable from "react-native-animatable";
 import colors from "../../colors";
+import strings from "../../strings";
 
 //Contact email
 const EMAIL = "violenthoboenterprises@gmail.com";
@@ -90,7 +91,7 @@ class Contact extends Component {
               fontWeight: "bold"
             }}
           >
-            Privacy
+            {strings.privacy}
           </Text>
         </TouchableHighlight>
 
@@ -103,7 +104,7 @@ class Contact extends Component {
               style={{ borderRadius: 20 }}
             >
               {this.getTouchContent({
-                text: "Leave a review",
+                text: strings.leaveReview,
                 iconName: "star-face"
               })}
             </TouchableHighlight>
@@ -117,7 +118,7 @@ class Contact extends Component {
               style={{ borderRadius: 20 }}
             >
               {this.getTouchContent({
-                text: "Contact",
+                text: strings.contact,
                 iconName: "email-outline"
               })}
             </TouchableHighlight>
@@ -131,7 +132,7 @@ class Contact extends Component {
               style={{ borderRadius: 20 }}
             >
               {this.getTouchContent({
-                text: "More apps",
+                text: strings.moreApps,
                 iconName: "cellphone-arrow-down"
               })}
             </TouchableHighlight>
@@ -139,7 +140,7 @@ class Contact extends Component {
         </View>
         <View style={styles.credit}>
           <Text style={styles.creditText}>
-            Violent Hobo Enterprises - {new Date().getFullYear()}
+            {strings.credit} - {new Date().getFullYear()}
           </Text>
         </View>
       </View>

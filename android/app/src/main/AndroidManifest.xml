@@ -1,5 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-  package="com.tipadvisor">
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.tipadvisor">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -9,12 +10,14 @@
       android:icon="@mipmap/ic_launcher"
       android:roundIcon="@mipmap/ic_launcher_round"
       android:allowBackup="false"
-      android:theme="@style/AppTheme">
+      android:theme="@style/AppTheme"
+        tools:ignore="GoogleAppIndexingWarning">
       <activity
         android:name=".MainActivity"
         android:label="@string/app_name"
         android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
-        android:windowSoftInputMode="adjustResize">
+          android:screenOrientation="portrait"
+          android:windowSoftInputMode="adjustPan">
         <intent-filter>
             <action android:name="android.intent.action.MAIN" />
             <category android:name="android.intent.category.LAUNCHER" />

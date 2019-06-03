@@ -6,7 +6,7 @@
 	<integer>10</integer>
 	<key>logs</key>
 	<dict>
-		<key>0E68D6D2-BB04-4A65-BC0C-803AADC2E756</key>
+		<key>43BC1625-FE9F-498C-82DC-109CEA88EBC1</key>
 		<dict>
 			<key>className</key>
 			<string>IDECommandLineBuildLog</string>
@@ -15,7 +15,7 @@
 			<key>domainType</key>
 			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
 			<key>fileName</key>
-			<string>0E68D6D2-BB04-4A65-BC0C-803AADC2E756.xcactivitylog</string>
+			<string>43BC1625-FE9F-498C-82DC-109CEA88EBC1.xcactivitylog</string>
 			<key>primaryObservable</key>
 			<dict>
 				<key>highLevelStatus</key>
@@ -30,13 +30,45 @@
 			<key>signature</key>
 			<string>Building project TipAdvisor with scheme TipAdvisor and configuration Debug</string>
 			<key>timeStartedRecording</key>
-			<real>581151494.61872995</real>
+			<real>581178002.61768699</real>
 			<key>timeStoppedRecording</key>
-			<real>581151510.29122901</real>
+			<real>581178020.16870499</real>
 			<key>title</key>
 			<string>Building project TipAdvisor with scheme TipAdvisor and configuration Debug</string>
 			<key>uniqueIdentifier</key>
-			<string>0E68D6D2-BB04-4A65-BC0C-803AADC2E756</string>
+			<string>43BC1625-FE9F-498C-82DC-109CEA88EBC1</string>
+		</dict>
+		<key>9E0FCEC9-31B7-431E-969B-143364A9F90A</key>
+		<dict>
+			<key>className</key>
+			<string>IDECommandLineBuildLog</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>9E0FCEC9-31B7-431E-969B-143364A9F90A.xcactivitylog</string>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>TipAdvisor project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>TipAdvisor</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Building project TipAdvisor with scheme TipAdvisor and configuration Debug</string>
+			<key>timeStartedRecording</key>
+			<real>581263916.48752904</real>
+			<key>timeStoppedRecording</key>
+			<real>581263933.85264301</real>
+			<key>title</key>
+			<string>Building project TipAdvisor with scheme TipAdvisor and configuration Debug</string>
+			<key>uniqueIdentifier</key>
+			<string>9E0FCEC9-31B7-431E-969B-143364A9F90A</string>
 		</dict>
 	</dict>
 </dict>

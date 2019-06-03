@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Provider } from "react-redux";
-import { Platform, StatusBar, View } from "react-native";
+import { Platform, StatusBar, View, Dimensions } from "react-native";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 import {
   createBottomTabNavigator,
@@ -14,6 +14,7 @@ import Home from "./components/Home";
 import Splash from "./components/Splash";
 import store from "./store";
 import colors from "./colors";
+import strings from "./strings";
 
 // setting the appearance of the status bar
 const MyStatusBar = ({ backgroundColor, ...props }) => (
@@ -32,24 +33,30 @@ const MyStatusBar = ({ backgroundColor, ...props }) => (
 );
 
 // creating a stack navigator for navigating between the 'More' screen and the privacy policy
-const ContactNavigator = createStackNavigator({
-  Contact: {
-    screen: Contact,
-    navigationOptions: {
-      header: null
-    }
-  },
-  PrivacyPolicy: {
-    screen: PrivacyPolicy,
-    navigationOptions: {
-      title: "Privacy Policy",
-      headerTintColor: "#ddd",
-      headerStyle: {
-        backgroundColor: "#022d1a"
+const ContactNavigator = createStackNavigator(
+  {
+    Contact: {
+      screen: Contact,
+      navigationOptions: {
+        header: null
+      }
+    },
+    PrivacyPolicy: {
+      screen: PrivacyPolicy,
+      navigationOptions: {
+        title: strings.privacyPolicyTitle,
+        headerTintColor: "#ddd",
+        headerStyle: {
+          backgroundColor: "#022d1a"
+        },
+        headerTitletyle: {
+          width: Dimensions.get("window").width
+        }
       }
     }
-  }
-});
+  },
+  { headerLayoutPreset: "center" }
+);
 
 ContactNavigator.navigationOptions = ({ navigation }) => {
   let tabBarVisible = true;
@@ -74,7 +81,8 @@ const TabNavigator = createBottomTabNavigator(
       navigationOptions: {
         tabBarIcon: ({ tintColor }) => (
           <Icon name="home-outline" color={tintColor} size={20} />
-        )
+        ),
+        title: strings.homeTitle
       }
     },
     About: {
@@ -82,7 +90,8 @@ const TabNavigator = createBottomTabNavigator(
       navigationOptions: {
         tabBarIcon: ({ tintColor }) => (
           <Icon name="information-outline" color={tintColor} size={20} />
-        )
+        ),
+        title: strings.aboutTitle
       }
     },
     More: {
@@ -90,7 +99,8 @@ const TabNavigator = createBottomTabNavigator(
       navigationOptions: {
         tabBarIcon: ({ tintColor }) => (
           <Icon name="more" color={tintColor} size={20} />
-        )
+        ),
+        title: strings.moreTitle
       }
     }
   },

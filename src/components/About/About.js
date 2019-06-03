@@ -3,6 +3,7 @@ import { Text, View, ScrollView } from "react-native";
 import styles from "./styles";
 import Title from "../Title";
 import * as Animatable from "react-native-animatable";
+import strings from "../../strings";
 
 /**
  * This is a pretty static screen which merely displays text
@@ -19,7 +20,7 @@ class About extends Component {
         >
           <ScrollView>
             <Text style={styles.text}>
-              Here are a few quick points about this app:{`\n\n`}
+              {/* Here are a few quick points about this app:{`\n\n`}
               {`\u2022`} Just because tipping is accepted does not mean that it
               is expected. Some tips in this app are labelled "Tipping
               Optional". It may be enough to just say "keep the change".
@@ -37,7 +38,8 @@ class About extends Component {
               knowledge and is intended to be used as a quick reference. It is
               advised that you do further research. I'm always looking to
               improve this information so contact me via the 'More' tab with any
-              changes I should make.
+              changes I should make. */}
+              {strings.about}
             </Text>
           </ScrollView>
         </Animatable.View>

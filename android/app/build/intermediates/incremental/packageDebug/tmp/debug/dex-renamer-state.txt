@@ -1,4 +1,4 @@
-#Sun Jun 02 02:31:42 PST 2019
+#Mon Jun 03 19:05:33 PHT 2019
 base.0=/Users/macbookair/Code/TipAdvisor/android/app/build/intermediates/transforms/dexMerger/debug/0
-renamed.0=classes.dex
 path.0=classes.dex
+renamed.0=classes.dex

@@ -13,18 +13,19 @@ import * as Animatable from "react-native-animatable";
 import PropTypes from "prop-types";
 import constants from "../../constants";
 import colors from "../../colors";
+import strings from "../../strings";
 
 //If tipping is optional display this text
 function IsOptional(value) {
   return value.country.tips[value.country.selectedTipIndex].optional ? (
-    <Text style={styles.optional}>Tipping optional</Text>
+    <Text style={styles.optional}>{strings.tippingOptional}</Text>
   ) : null;
 }
 
 //Inform user that the selected situation doesn't need tipping
 function CheckForZeroTip(props) {
   if (props.tipAmount === 0) {
-    return <Text style={styles.text}>No need to tip.</Text>;
+    return <Text style={styles.text}>{strings.noNeedToTip}</Text>;
   }
   return (
     <Text style={styles.text}>
@@ -101,14 +102,14 @@ class ValidatedTip extends Component {
       case constants.notANumber:
         return (
           <View style={styles.textWrapper}>
-            <Text style={styles.errorText}>Only use numbers.</Text>
+            <Text style={styles.errorText}>{strings.useNumbers}</Text>
           </View>
         );
       //inform user that they can't input negative numbers
       case constants.negative:
         return (
           <View style={styles.textWrapper}>
-            <Text style={styles.errorText}>Don't use negative numbers.</Text>
+            <Text style={styles.errorText}>{strings.dontUseNegatives}</Text>
           </View>
         );
       //no error detected.
@@ -119,7 +120,7 @@ class ValidatedTip extends Component {
             <View>
               <View style={styles.tipExtras}>
                 <Text style={styles.percentage}>
-                  Tip: {tips[selectedTipIndex].percentage * 100}%
+                  {strings.tip}: {tips[selectedTipIndex].percentage * 100}%
                 </Text>
                 <IsOptional country={this.props.country} />
               </View>
@@ -140,7 +141,7 @@ class ValidatedTip extends Component {
               </View>
               <View style={styles.tipExtras}>
                 <Text style={styles.percentage}>
-                  Tip: {tips[selectedTipIndex].percentage * 100}%
+                  {strings.tip}: {tips[selectedTipIndex].percentage * 100}%
                 </Text>
                 <IsOptional country={this.props.country} />
               </View>
@@ -165,7 +166,9 @@ class ValidatedTip extends Component {
           //inform user to not tip in the selected country
           return (
             <View style={styles.textWrapper}>
-              <Text style={styles.text}>Do not tip in {checkName(name)}.</Text>
+              <Text style={styles.text}>
+                {strings.doNotTipIn} {checkName(name)}.
+              </Text>
             </View>
           );
         } else {
@@ -173,7 +176,7 @@ class ValidatedTip extends Component {
           return (
             <View style={styles.textWrapper}>
               <Text style={styles.text}>
-                You don't need to tip in {checkName(name)}.
+                {strings.dontNeedToTip} {checkName(name)}.
               </Text>
             </View>
           );
